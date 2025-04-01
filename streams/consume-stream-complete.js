@@ -25,9 +25,6 @@ const server = http.createServer(async (req, res) => {
 
   return res.end(fullStreamContent)
 
-  // return req
-  //   .pipe(new InverseNumbersStream())
-  //   .pipe(res)
 })
 
 server.listen(3334)
