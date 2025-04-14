@@ -58,7 +58,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
     async (request) => {
       const { sessionId } = request.cookies
 
-      const transactions = await knex('transactions')
+      const summary = await knex('transactions')
         .where('session_id', sessionId)
         .sum('amount', {
           as: 'amount',
@@ -66,7 +66,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
         .first()
 
       return {
-        transactions,
+        summary,
       }
     },
   )
